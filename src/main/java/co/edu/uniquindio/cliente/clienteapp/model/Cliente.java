@@ -8,7 +8,6 @@ public class Cliente {
     private String telefonoCelular;
     private int edad;
 
-
     public Cliente(ClienteBuilder builder) {
         this.nombre = builder.nombre;
         this.apellido = builder.apellido;
@@ -17,13 +16,6 @@ public class Cliente {
         this.telefonoCelular = builder.telefonoCelular;
         this.edad = builder.edad;
     }
-
-
-
-    public static ClienteBuilder builder () {
-        return new ClienteBuilder();
-    }
-
 
     public String getNombre() {
         return nombre;
@@ -65,8 +57,6 @@ public class Cliente {
         this.telefonoCelular = telefonoCelular;
     }
 
-
-
     public int getEdad() {
         return edad;
     }
@@ -76,19 +66,35 @@ public class Cliente {
     }
 
 
-
     @Override
     public String toString() {
-        return "Cliente{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", cedula='" + cedula + '\'' +
-                ", telefonoFijo='" + telefonoFijo + '\'' +
-                ", telefonoCelular='" + telefonoCelular + '\'' +
-                ", edad=" + edad +
-                '}';
-    }
+        if (telefonoFijo != null && telefonoCelular != null) {
 
-    public void setTipoCliente(String tipoCliente) {
+          return " Cliente vip:\n" +
+              "nombre= " + nombre + '\n'+
+              "apellido= " + apellido + '\n' +
+              "cedula= " + cedula + '\n' +
+              "telefonoFijo= " + telefonoFijo + '\n' +
+              "telefonoCelular= " + telefonoCelular + '\n' +
+              "edad= " + edad;
+
+        } else if (telefonoFijo != null) {
+
+          return " Cliente premium:\n" +
+              "nombre= " + nombre + '\n' +
+              "apellido= " + apellido + '\n' +
+              "cedula= " + cedula + '\n' +
+              "telefonoFijo= " + telefonoFijo + '\n' +
+              "edad= " + edad;
+
+        } else {
+
+          return " Cliente basic:\n" +
+              "nombre= " + nombre + '\n' +
+              "apellido= " + apellido + '\n' +
+              "cedula= " + cedula + '\n' +
+              "edad= " + edad;
+
+        }
     }
 }
