@@ -1,9 +1,9 @@
 package co.edu.uniquindio.cliente.clienteapp.controller;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.cliente.clienteapp.model.Cliente;
+import co.edu.uniquindio.cliente.clienteapp.model.ClaseCliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -65,32 +65,42 @@ public class ClienteController {
 
    private void agregarCliente() {
       
-      ClaseCliente tiposCliente = new ClienteCliente();
+      ClaseCliente tiposCliente = new ClaseCliente();
 
       String nombre = txtNombre.getText();
-      int edad = Integer.parseInt(txtEdad.getText()
+
+      int edad = Integer.parseInt(txtEdad.getText());
       String apellido = txtApellido.getText();
       String numeroCelular = txtCelular.getText();
       String cedula = txtCedula.getText();
       String numeroTelefono = txtTelefonoFijo.getText();
 
         
-      if (rButtonClienteBasico.isSelected() == true) {
+      if (rButtonClienteBasico.isSelected()) {
           if (nombre != null && edad != 0 && apellido != null && cedula != null) {
-            Cliente resultado = tiposCliente.clienteBasic(nombre, edad, apellido, cedula);
+              System.out.println(nombre);
+             resultado = tiposCliente.clienteBasic(nombre, apellido, edad, cedula);
+
           }
           
-      } else if(rButtonClientePremium.isSelected() == true) {
+      } else if(rButtonClientePremium.isSelected()) {
           if (nombre != null && edad != 0 && apellido != null && cedula != null) {
-            Cliente resultado = tiposCliente.clientePremium(nombre, edad, apellido, cedula);
+             resultado = tiposCliente.clientePremium(nombre, apellido, edad, cedula, numeroTelefono);
           }
 
-      } else if(rButtonClienteVip.isSelected() == true) {
+      } else if(rButtonClienteVip.isSelected()) {
           if (nombre != null && edad != 0 && apellido != null && cedula != null) {
-            Cliente resultado = tiposCliente.clienteVip(nombre, edad, apellido, cedula);
+             resultado = tiposCliente.clienteVip(nombre, apellido, edad, cedula, numeroTelefono, numeroCelular);
           }
       } else {
+
+          txtResultado.setText("No se eligio ningun tipo de cliente");
       }
-      txtResultado.setText(resultado.toString());
+      if (resultado != null){
+          txtResultado.setText(resultado.toString());
+      } else {
+           System.out.println(resultado);
+       }
+
    }
 }
