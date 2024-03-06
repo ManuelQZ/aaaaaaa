@@ -7,7 +7,7 @@
 //import javafx.event.ActionEvent;
 //import javafx.fxml.FXML;
 //import javafx.scene.control.*;
-////Algo
+//
 //public class ClienteController {
 //
 //    @FXML
