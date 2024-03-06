@@ -8,7 +8,6 @@ public class Cliente {
     private String telefonoCelular;
     private int edad;
 
-
     public Cliente(ClienteBuilder builder) {
         this.nombre = builder.nombre;
         this.apellido = builder.apellido;
@@ -17,8 +16,6 @@ public class Cliente {
         this.telefonoCelular = builder.telefonoCelular;
         this.edad = builder.edad;
     }
-
-
 
     public static ClienteBuilder builder () {
         return new ClienteBuilder();
@@ -65,8 +62,6 @@ public class Cliente {
         this.telefonoCelular = telefonoCelular;
     }
 
-
-
     public int getEdad() {
         return edad;
     }
@@ -74,8 +69,6 @@ public class Cliente {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-
-
 
     @Override
     public String toString() {

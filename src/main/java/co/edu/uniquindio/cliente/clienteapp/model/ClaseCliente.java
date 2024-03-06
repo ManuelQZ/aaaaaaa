@@ -7,12 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-
 public class ClaseCliente {
 
     public ClaseCliente() {
     }
-
 
     public Cliente clienteBasic(String nombre, String apellido, int edad, String cedula) {
         Cliente basic = new ClienteBuilder()
@@ -46,6 +44,4 @@ public class ClaseCliente {
                     .build();
             return vip;
         }
-
-
 }
