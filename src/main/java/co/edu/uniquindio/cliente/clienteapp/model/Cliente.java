@@ -34,9 +34,9 @@ public class Cliente {
         this.estatura = estatura;
     }
 
-//    public static ClienteBuilder builder () {
-//        return new ClienteBuilder();
-//    }
+    public static ClienteBuilder builder () {
+        return new ClienteBuilder();
+    }
 
 
     public String getNombre() {
